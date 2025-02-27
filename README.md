@@ -5,7 +5,7 @@ Bu proje, modern web teknolojileri kullanılarak geliştirilmiş bir todo uygula
 ## Kullanılan Teknolojiler
 
 ### Frontend
-- **Next.js 14** - React framework'ü
+- **Next.js** - React framework'ü
 - **TypeScript** - Tip güvenliği için
 - **Tailwind CSS** - Stil ve tasarım için
 - **Zustand** - State yönetimi için
