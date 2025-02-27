@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Todo Uygulaması
 
-## Getting Started
+Bu proje, modern web teknolojileri kullanılarak geliştirilmiş bir todo uygulamasıdır.
 
-First, run the development server:
+## Kullanılan Teknolojiler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Frontend
+- **Next.js 14** - React framework'ü
+- **TypeScript** - Tip güvenliği için
+- **Tailwind CSS** - Stil ve tasarım için
+- **Zustand** - State yönetimi için
+- **@formkit/auto-animate** - Animasyonlar için
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Backend
+- **Next.js API Routes** - Backend API'leri için
+- **Prisma** - Veritabanı ORM'i
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Özellikler
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Todo İşlemleri**
+   - Todo ekleme
+   - Todo silme
+   - Todo düzenleme
+   - Todo'ları listeleme
 
-## Learn More
+2. **Kullanıcı Deneyimi**
+   - Hover efektleri
+   - Animasyonlu geçişler
+   - Düzenleme modu
+   - Responsive tasarım
 
-To learn more about Next.js, take a look at the following resources:
+3. **State Yönetimi**
+   - Merkezi state yönetimi (Zustand)
+   - TypeScript ile tip güvenliği
+   - Optimistik UI güncellemeleri
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Teknik Detaylar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### State Yönetimi
+- Zustand kullanılarak merkezi bir store oluşturuldu
+- Todo'ların durumu ve işlemleri store üzerinden yönetiliyor
 
-## Deploy on Vercel
+### Komponentler
+- **TodoList**: Ana komponent, todo listesini yönetir
+- **TodoItem**: Her bir todo öğesini render eder
+- **AddTodo**: Yeni todo ekleme ve düzenleme işlemlerini yönetir
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API Yapısı
+- RESTful API prensipleri
+- Next.js API Routes ile backend işlemleri
+- Prisma ile veritabanı işlemleri
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Animasyonlar
+- @formkit/auto-animate ile liste animasyonları
+- Hover efektleri için Tailwind transitions
+- Smooth geçişler
+
+## Kurulum
+
+1. Projeyi klonlayın
+
+  ```
+  git clone https://github.com/yourusername/to-do-app/
+  ```
+
+2. Bağımlılıkları yükleyin
+
+   ```
+   npm install
+   ```
+   or
+   ```
+   yarn
+   ```
+
+   
+3. .env dosyasını oluşturun
+
+  ```
+  DATABASE_URL="your-database-url"
+  ```
+
+
+4. Geliştirme sunucusunu başlatın
+
+   ```
+   npm run dev
+   ```
+   or
+   ```
+   yarn dev
+   ```
