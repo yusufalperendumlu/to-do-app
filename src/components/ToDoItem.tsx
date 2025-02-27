@@ -5,7 +5,7 @@ import { useTodoStore } from "@/store/todoStore";
 interface TodoItemProps {
   todoId: string;
   todoTitle: string;
-  onUpdate: (id: string, data: { title: string }) => void;
+  onUpdate: (id: string, title: string) => void;
 }
 
 export default function TodoItem({
@@ -30,7 +30,7 @@ export default function TodoItem({
           {/* Düzenleme butonu */}
           <FaEdit
             className="text-blue-500 cursor-pointer hover:scale-110 transition-all duration-100 ease-linear"
-            onClick={() => onUpdate(todoId, { title: todoTitle })}
+            onClick={() => onUpdate(todoId, todoTitle)}
           />
           {/* Silme butonu */}
           <FaTrashAlt
