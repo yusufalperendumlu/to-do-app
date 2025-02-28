@@ -4,6 +4,7 @@ export const getPosts = async () => {
 
     const data = await fetchApi('http://localhost:3000/api/todos');
 
+    console.log(data);
     
   return data;
 };

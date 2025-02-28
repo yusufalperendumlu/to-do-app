@@ -39,7 +39,7 @@ export default function TodoList() {
       />
       <div ref={parent} className="space-y-2 mt-4">
         {/* Todo öğelerini listele */}
-        {todoElements.map((todo) => (
+        {todoElements?.map((todo) => (
           <TodoItem
             key={todo.id}
             todoId={todo.id}

@@ -19,14 +19,14 @@ export async function POST(req: NextRequest) {
     const body = await req.json(); // API'ye gelen JSON veriyi al
     const newTodo = await prisma.todo.create({
       data: {
-        title: body.title || "Yeni Todo",
+        title: body.title || "New Todo",
         completed: body.completed ?? false,
       },
     });
 
     return NextResponse.json(newTodo, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: "Bağlantı hatası!" }, { status: 500 });
+    return NextResponse.json({ error: "Connection error!" }, { status: 500 });
   }
 }
 
@@ -36,6 +36,6 @@ export async function GET() {
     const todos = await prisma.todo.findMany();
     return NextResponse.json(todos, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: "Bağlantı hatası!" }, { status: 500 });
+    return NextResponse.json({ error: "Connection error!" }, { status: 500 });
   }
 }
