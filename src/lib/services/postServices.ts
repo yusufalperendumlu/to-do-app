@@ -2,7 +2,7 @@ import { fetchApi } from '@/lib/services/fetchApi';
 
 export const getPosts = async () => {
 
-    const data = await fetchApi('http://localhost:3000/api/todos');
+    const data = await fetchApi('/todos', 'GET');
 
     console.log(data);
     
@@ -10,7 +10,7 @@ export const getPosts = async () => {
 };
 
 export const createPost = async (data: { title: string; }) => {
-  return await fetchApi('http://localhost:3000/api/todos', 'POST', data);
+  return await fetchApi('/todos', 'POST', data);
 };
 
 export const updatePost = async (id: string, data: { title: string }) => {
