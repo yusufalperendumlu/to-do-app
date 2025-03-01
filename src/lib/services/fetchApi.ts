@@ -7,9 +7,7 @@ export const fetchApi = async (endpoint: string, method: string, body?: any) => 
             headers: { "Content-Type": "application/json" },
             body: body ? JSON.stringify(body) : undefined,
         };
-        
-        console.log(`Fetching: ${BASE_URL}/api/${endpoint}`);  // Debug için log ekleyelim
-        
+                
         const response = await fetch(`${BASE_URL}/api/${endpoint}`, options);
         
         if (!response.ok) {
