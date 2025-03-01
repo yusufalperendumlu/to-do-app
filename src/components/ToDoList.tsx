@@ -11,6 +11,7 @@ export default function TodoList() {
   const [activeTodo, setActiveTodo] = useState<{
     id: string;
     title: string;
+    completed: boolean;
   } | null>(null); // Seçilen todo'yu tutmak için state
 
   const [parent] = useAutoAnimate();
@@ -21,7 +22,7 @@ export default function TodoList() {
   }, [fetchTodos]);
 
   const handleUpdate = (id: string, title: string) => {
-    setActiveTodo({ id, title }); // Düzenlenmek üzere seçilen todo'yu aktif hale getir
+    setActiveTodo({ id, title, completed: false }); // Düzenlenmek üzere seçilen todo'yu aktif hale getir
   };
 
   const handleCancelUpdate = () => {
@@ -44,6 +45,7 @@ export default function TodoList() {
             key={todo.id}
             todoId={todo.id}
             todoTitle={todo.title}
+            todoCreatedAt={todo.createdAt}
             onUpdate={handleUpdate}
           />
         ))}

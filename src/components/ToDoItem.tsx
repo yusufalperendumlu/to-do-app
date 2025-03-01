@@ -5,12 +5,14 @@ import { useTodoStore } from "@/store/todoStore";
 interface TodoItemProps {
   todoId: string;
   todoTitle: string;
+  todoCreatedAt: Date;
   onUpdate: (id: string, title: string) => void;
 }
 
 export default function TodoItem({
   todoId,
   todoTitle,
+  todoCreatedAt,
   onUpdate,
 }: TodoItemProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,7 +27,7 @@ export default function TodoItem({
       <span className="w-4 h-4 before:content-['\2192'] flex items-center"></span>
       <span>{todoTitle}</span> {/* Todo başlığı */}
       {/* Hover durumunda ikonları göster */}
-      {isHovered && (
+      {isHovered ? (
         <div className="absolute right-2 flex gap-2">
           {/* Düzenleme butonu */}
           <FaEdit
@@ -37,6 +39,12 @@ export default function TodoItem({
             className="text-red-500 cursor-pointer hover:scale-110 transition-all duration-100 ease-linear"
             onClick={() => deleteTodo(todoId)}
           />
+        </div>
+      ) : (
+        <div className="absolute right-2">
+          <span className="text-xs text-neutral-500">
+            {new Date(todoCreatedAt).toLocaleDateString()}{" "}
+          </span>
         </div>
       )}
     </div>

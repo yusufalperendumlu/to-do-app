@@ -7,6 +7,8 @@ import "toastr/build/toastr.min.css";
 interface Todo {
   id: string;
   title: string;
+  completed: boolean;
+  createdAt: Date;
 }
 
 interface TodoState {
