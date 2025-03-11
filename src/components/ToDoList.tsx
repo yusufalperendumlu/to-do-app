@@ -4,10 +4,17 @@ import TodoItem from "@/components/ToDoItem";
 import AddTodo from "@/components/AddToDo";
 import { useTodoStore } from "@/store/todoStore";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function TodoList() {
-  const { todoElements, fetchTodos, addTodo, updateTodo, deleteTodo } =
-    useTodoStore();
+  const {
+    todoElements,
+    fetchTodos,
+    addTodo,
+    updateTodo,
+    deleteTodo,
+    isLoaded,
+  } = useTodoStore();
   const [activeTodo, setActiveTodo] = useState<{
     id: string;
     title: string;
@@ -40,15 +47,21 @@ export default function TodoList() {
       />
       <div ref={parent} className="space-y-2 mt-4">
         {/* Todo öğelerini listele */}
-        {todoElements?.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todoId={todo.id}
-            todoTitle={todo.title}
-            todoCreatedAt={todo.createdAt}
-            onUpdate={handleUpdate}
-          />
-        ))}
+        {isLoaded ? (
+          todoElements?.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todoId={todo.id}
+              todoTitle={todo.title}
+              todoCreatedAt={todo.createdAt}
+              onUpdate={handleUpdate}
+            />
+          ))
+        ) : (
+          <div className="flex items-center justify-center animate-spin">
+            <AiOutlineLoading3Quarters className="w-6 h-6 " />
+          </div>
+        )}
       </div>
     </div>
   );

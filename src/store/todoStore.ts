@@ -14,6 +14,7 @@ interface Todo {
 interface TodoState {
   todoElements: Todo[];
   title: string;
+  isLoaded: boolean;
   setTitle: (title: string) => void;
   fetchTodos: () => Promise<void>;
   addTodo: () => Promise<void>;
@@ -25,10 +26,11 @@ export const useTodoStore = create<TodoState>((set, get) => ({
   todoElements: [],
   title: "",
   setTitle: (title) => set({ title }),
+  isLoaded: false,
 
   fetchTodos: async () => {
     const posts = await getPosts();
-    set({ todoElements: posts });
+    set({ todoElements: posts, isLoaded: true });
   },
 
   addTodo: async () => {
